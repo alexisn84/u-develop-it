@@ -21,6 +21,7 @@ router.get('/parties', (req, res) => {
 router.get('/parties/:id', (req, res) => {
     const sql = `SELECT* FROM parties WHERE id = ?`;
     const params = [req.params.id];
+    
     db.query(sql, params, (err, row) => {
         if (err) {
             res.status(400).json({ error: err.message });
